@@ -12,8 +12,8 @@ public class LoginPage {
     private SelenideElement loginInput = $("[data-test-id='login'] input");
     private SelenideElement passwordInput = $("[data-test-id='password'] input");
     private SelenideElement actionButton = $("[data-test-id='action-login']");
-    private SelenideElement loginNotification = $("[data-test-id='login'] input .input__sub");
-    private SelenideElement passwordNotification = $("[data-test-id='password'] input .input__sub");
+    private SelenideElement loginNotification = $("[data-test-id='login'] .input__sub");
+    private SelenideElement passwordNotification = $("[data-test-id='password'] .input__sub");
     private SelenideElement errorNotification = $("[data-test-id='error-notification'] .notification__content");
 
     public LoginPage() {
@@ -28,8 +28,8 @@ public class LoginPage {
     }
 
     public void emptyAuthorisation(DataHelper.AuthInfo info) {
-        loginInput.setValue("");
-        passwordInput.setValue("");
+//        loginInput.setValue("");
+//        passwordInput.setValue("");
         actionButton.click();
         loginNotification.shouldBe(Condition.visible);
         passwordNotification.shouldBe(Condition.visible);

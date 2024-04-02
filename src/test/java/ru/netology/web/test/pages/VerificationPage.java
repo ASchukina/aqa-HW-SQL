@@ -10,9 +10,9 @@ public class VerificationPage {
     private SelenideElement codeField = $("[data-test-id='code'] input");
     private SelenideElement verifyButton = $("[data-test-id='action-verify']");
     private SelenideElement errorNotification = $("[data-test-id='error-notification'] .notification__content");
-    private SelenideElement emptyCodeNotification = $("[data-test-id='code'] input .input__sub");
+    private SelenideElement emptyCodeNotification = $("[data-test-id='code'] .input__sub");
 
-    public void VerificationPageVisibility() {
+    public void verificationPageVisibility() {
         codeField.shouldBe(visible);
     }
 

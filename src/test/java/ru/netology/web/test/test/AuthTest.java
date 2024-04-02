@@ -18,7 +18,7 @@ public class AuthTest {
     }
 
     @AfterEach
-    static void tearDown() {
+    void tearDown() {
         cleanAuthCodes();
     }
 
@@ -57,7 +57,7 @@ public class AuthTest {
     public void shouldNotAuthoriseWithIncorrectCode() {
         var authInfo = DataHelper.getAuthInfo();
         var verificationPage = loginPage.validLogin(authInfo);
-        verificationPage.VerificationPageVisibility();
+        verificationPage.verificationPageVisibility();
         var verificationCode = DataHelper.generateRandomVerificationCode();
         verificationPage.verify(verificationCode.getCode());
         verificationPage.incorrectCode();
@@ -68,7 +68,7 @@ public class AuthTest {
     public void shouldNotAuthoriseWithoutCode() {
         var authInfo = DataHelper.getAuthInfo();
         var verificationPage = loginPage.validLogin(authInfo);
-        verificationPage.VerificationPageVisibility();
+        verificationPage.verificationPageVisibility();
         var verificationCode = DataHelper.generateRandomVerificationCode();
         verificationPage.verify("");
         verificationPage.codeEmpty();

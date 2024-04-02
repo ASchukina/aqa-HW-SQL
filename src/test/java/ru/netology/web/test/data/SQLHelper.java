@@ -23,23 +23,23 @@ public class SQLHelper {
         // тянем код из таблицы в БД
         var codeSQL = "SELECT code FROM auth_codes ORDER BY created DESC LIMIT 1";
         var conn = getConn();
-        var code = QueryRunner.query(conn, codeSQL, new ScalarHandler<String>());
+        var code = runner.query(conn, codeSQL, new ScalarHandler<String>());
         return new DataHelper.VerificationCode(code);
     }
 
     @SneakyThrows
     public static void cleanDatabase() {
         var connection = getConn();
-        QueryRunner.execute(connection, "DELETE FROM auth_codes");
-        QueryRunner.execute(connection, "DELETE FROM card_transactions");
-        QueryRunner.execute(connection, "DELETE FROM cards");
-        QueryRunner.execute(connection, "DELETE FROM users");
+        runner.execute(connection, "DELETE FROM auth_codes");
+        runner.execute(connection, "DELETE FROM card_transactions");
+        runner.execute(connection, "DELETE FROM cards");
+        runner.execute(connection, "DELETE FROM users");
     }
 
     @SneakyThrows
     public static void cleanAuthCodes() {
         var connection = getConn();
-        QueryRunner.execute(connection, "DELETE FROM auth_codes");
+        runner.execute(connection, "DELETE FROM auth_codes");
     }
 
 }
